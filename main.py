@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException, TimeoutException, ElementClickInterceptedException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from proxy import selenium_browser_wrapper
 from pydantic import BaseModel
 import pandas as pd
 
@@ -158,8 +157,6 @@ def gmaps_scraper(query):
         
     return all_cards
 
- 
-all_cards = gmaps_scraper("Tatoo studios in Toronto")
-Card.export_to_csv(all_cards, "Toronto")
-
-# element = driver.find_element(By.XPATH, '//*[contains(text(), "Try using different filters")]')
+if __name__ == "__main__":
+    all_cards = gmaps_scraper("Tatoo studios in Toronto")
+    Card.export_to_csv(all_cards, "Toronto")
